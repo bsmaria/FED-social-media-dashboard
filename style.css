@@ -2,35 +2,111 @@
     padding:0;
     margin:0;
 }
-main {
-    height:100vh;
-}
 :root {
-    /* Dark theme colors*/
+    /* Dark theme colors */
     --dark-blue-bg: hsl(230, 17%, 14%);
     --dark-blue-tbg:hsl(232, 19%, 15%);
     --dark-blue-cardbg: hsl(228, 28%, 20%);
     --dark-blue-text:hsl(228, 34%, 66%);
     --dark-white:hsl(0, 0%, 100%);
-    /* Light theme colors*/
+    /* Light theme colors */
     --light-white-bg:hsl(0, 0%, 100%);
     --light-blue-tbg:hsl(225, 100%, 98%);
     --light-gray-blue-cardbg:hsl(227, 47%, 96%);
     --light-gray-blue-text:hsl(228, 12%, 44%);
     --light-dark-blue-text:hsl(230, 17%, 14%);
-    /*font-size*/
+    /* font-size */
     --font-size-card:14px;
+    /*Section colors*/
+    --lime-reen: hsl(163, 72%, 41%);
+    --bright-red: hsl(356, 69%, 56%);
+    /*Social Media colors*/
+    --facebook: hsl(195, 100%, 50%);
+    --twitter: hsl(203, 89%, 53%);
+    --instagram:linear-gradient(90deg, hsl(37, 97%, 70%) 0%, hsl(329, 70%, 58%) 100%);
+    --youTube: hsl(348, 97%, 39%);
+  /*font-family*/
+    --font-family:'Inter', sans-serif;
+} 
+main {
+    height:100vh;
+    font-family:var(--font-family);
 }
+    /*the switch*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:linear-gradient(90deg, hsl(210, 78%, 56%) 0%, hsl(146, 68%, 55%) 100%);
+    transition: 0.3s ease-in-out;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 21px;
+    width: 21px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--dark-blue-bg);
+    transition: 0.3s ease-in-out;
+  }
+  
+  input:checked + .slider {
+    background-color: hsl(230, 22%, 74%);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px black;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 #dark-theme {
+    box-sizing: border-box;
     background-color: var(--dark-blue-bg);
     display:flex;
     flex-direction: column;
+    width:100%;
+    padding:3rem 5rem 3rem 5rem;
 }
 
 #dark-theme #theme-header {
     display:flex;
     flex-direction:row;
+    justify-content: space-between;
+    margin-bottom:2rem;
 }
 
 #dark-theme #title {
@@ -38,11 +114,153 @@ main {
     flex-direction:column;
 }
 
+#dark-theme #title h1 {
+    font-size:20px;
+    color:white;
+}
+#dark-theme #title h2 {
+    font-size:13px;
+    color:var(--dark-blue-text);
+}
+
+#dark-theme .theme-changer {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+
+#dark-theme .theme-changer p {
+    color:var(--dark-blue-text);
+    font-weight:700;
+    font-size:13px;
+    margin-right:0.8rem;
+}
+
 #dark-theme .section-one {
     display:flex;
     flex-direction:row;
-    justify-content: center;
-    align-items: center;;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:2rem;
+}
+
+#dark-theme .main-sm-info {
+    position:relative;
+    box-sizing: border-box;
+    background-color:var(--dark-blue-cardbg);
+    width:23%;
+    height: auto;
+    padding:1.3rem 2rem;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius:0.5em;
+}
+
+#dark-theme #fb-card {
+    border-top:6px solid var(--facebook);
+} 
+#dark-theme #tw-card {
+    border-top:6px solid var(--twitter);
+} 
+#dark-theme #ig-card {
+    border-top:6px solid var(--instagram); /* DOUBT: Doesn't work for some reason, Maybe a border doesn't apply for gradient.*/
+} 
+#dark-theme #yt-card {
+    border-top:6px solid var(--youTube);
+} 
+
+#dark-theme .sm-user {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom:10px;
+
+}
+
+#dark-theme .username {
+    color:var(--dark-blue-text);
+    font-weight: 700;
+    font-size:11px;
+    margin-left:10px;
+}
+
+#dark-theme .followers-num {
+    font-weight:700;
+    font-size:45px;
+    color:var(--dark-white);
+
+}
+
+#dark-theme .followers-str {
+    color:var(--dark-blue-text);
+    text-transform:uppercase;
+    font-weight:400;
+    letter-spacing:5px;
+    font-size:9px;
+}
+
+#dark-theme .new-followers {
+    font-size:9px;
+    font-weight:700;
+    margin-top:1.5rem;
+}
+
+#dark-theme #new-fb-today {
+    color:var(--lime-reen);
+}
+#new-fb-today:before {
+    content:"^";
+    display:inline-block;
+    margin-right:0.5rem;
+    color: var(--lime-reen);
+}
+
+#dark-theme #new-tw-today {
+    color:var(--lime-reen);
+}
+#new-tw-today:before {
+    content:"^";
+    display:inline-block;
+    margin-right:0.5rem;
+    color: var(--lime-reen);
+}
+#dark-theme #new-ig-today {
+    color:var(--lime-reen);
+}
+#new-ig-today:before {
+    content:"^";
+    display:inline-block;
+    margin-right:0.5rem;
+    color: var(--lime-reen);
+}
+#dark-theme #new-yt-today {
+    color:var(--bright-red);
+}
+#new-yt-today:before {
+    content:"^";
+    transform: rotate(180deg);
+    display:inline-block;
+    margin-right:0.5rem;
+    color: var(--bright-red);
+}
+#dark-theme .section-two {
+    display:flex;
+    flex-direction:column;
+    align-items: baseline;
+}
+#dark-theme #all-stats-title h3 {
+    font-size:18px;
+    color:white;
+    margin-bottom:1rem;
+}
+
+#dark-theme #all-stats {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content: space-between;
 }
 
 #light-theme {
